@@ -1,6 +1,8 @@
 import { useFetchMovie } from 'hooks/useFetchMovie';
+// import { Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-export const MoviePage = () => {
+export const MovieDetails = () => {
   const movie = useFetchMovie();
 
   return (
@@ -21,6 +23,14 @@ export const MoviePage = () => {
           {movie.genres.map(({ name, id }) => (
             <li key={id}>{name}</li>
           ))}
+        </ul>
+        <ul>
+          <li>
+            <Link to="cast">Cast</Link>
+          </li>
+          <li>
+            <Link to="reviews">Reviews</Link>
+          </li>
         </ul>
       </>
     )

@@ -18,6 +18,27 @@ export async function fetchMovieById(id) {
       api_key: ApiKey,
     },
   });
-  console.log(response.data);
+  //   console.log(response.data);
   return response.data;
 }
+
+export async function fetchMovieByName(query) {
+  const response = await axios('search/movie', {
+    params: {
+      api_key: ApiKey,
+      query,
+    },
+  });
+  // console.log(response.data);
+  return response.data.results;
+}
+
+// export async function fetchMovieReviews(id) {
+//   const response = await axios(`movie/${id}/reviews`, {
+//     params: {
+//       api_key: ApiKey,
+//     },
+//   });
+//   console.log(response.data);
+//   return response.data;
+// }

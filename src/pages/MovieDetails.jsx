@@ -1,13 +1,22 @@
 import { useFetchMovie } from 'hooks/useFetchMovie';
-// import { Outlet } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 
 export const MovieDetails = () => {
   const movie = useFetchMovie();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   return (
     movie && (
       <>
+        <button
+          onClick={() => {
+            navigate(location?.state?.from ?? '/');
+          }}
+          type="button"
+        >
+          Go back
+        </button>
         <h2>
           {movie.title},({movie.release_date.split('-')[0]})
         </h2>
@@ -26,12 +35,17 @@ export const MovieDetails = () => {
         </ul>
         <ul>
           <li>
-            <Link to="cast">Cast</Link>
+            <Link state={location.state} to="cast">
+              Cast
+            </Link>
           </li>
           <li>
-            <Link to="reviews">Reviews</Link>
+            <Link state={location.state} to="reviews">
+              Reviews
+            </Link>
           </li>
         </ul>
+        <Outlet />
       </>
     )
   );

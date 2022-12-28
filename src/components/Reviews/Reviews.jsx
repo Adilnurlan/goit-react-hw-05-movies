@@ -11,7 +11,7 @@ export const Reviews = () => {
   }, [movieId]);
 
   return (
-    <>
+    <div>
       <ul>
         {reviews.length !== 0 ? (
           reviews.map(({ author, content, id }) => (
@@ -24,6 +24,6 @@ export const Reviews = () => {
           <p>There are no reviews</p>
         )}
       </ul>
-    </>
+    </div>
   );
 };

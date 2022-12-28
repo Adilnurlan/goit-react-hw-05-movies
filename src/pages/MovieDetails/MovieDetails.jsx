@@ -8,7 +8,7 @@ export const MovieDetails = () => {
 
   return (
     movie && (
-      <>
+      <div>
         <button
           onClick={() => {
             navigate(location?.state?.from ?? '/');
@@ -46,7 +46,7 @@ export const MovieDetails = () => {
           </li>
         </ul>
         <Outlet />
-      </>
+      </div>
     )
   );
 };

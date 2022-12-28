@@ -1,0 +1,47 @@
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  list-style-type: none;
+  padding: 20px;
+}
+
+.listItem {
+  border: 1px solid gray;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  display: inline-block;
+  box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.listItem:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.3), 0 0 1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.image {
+  width: 300px;
+  height: 400px;
+  border-radius: 10px;
+}
+
+.Link {
+  text-decoration: none;
+}
+
+.title {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  color: black;
+}

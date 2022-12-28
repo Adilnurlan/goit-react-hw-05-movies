@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams, Link, useLocation } from 'react-router-dom';
 import { fetchMovieByName } from 'services/moviesApi';
+import s from './MoviesPage.module.css';
 
 export const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
@@ -24,24 +25,33 @@ export const MoviesPage = () => {
   };
 
   return (
-    <>
+    <section>
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder="Please type a movie" name="query" />
         <button>Search</button>
       </form>
       {movies && (
         <>
-          <ul>
-            {movies.map(({ title, id }) => (
-              <li key={id}>
-                <Link state={{ from: location }} to={`/movies/${id}`}>
-                  {title}
+          <ul className={s.list}>
+            {movies.map(({ title, id, poster_path }) => (
+              <li className={s.listItem} key={id}>
+                <Link
+                  className={s.Link}
+                  state={{ from: location }}
+                  to={`/movies/${id}`}
+                >
+                  <img
+                    className={s.image}
+                    src={`https://image.tmdb.org/t/p/w400/${poster_path}`}
+                    alt={title}
+                  />
+                  <p className={s.title}>{title}</p>
                 </Link>
               </li>
             ))}
           </ul>
         </>
       )}
-    </>
+    </section>
   );
 };

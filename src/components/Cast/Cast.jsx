@@ -14,7 +14,7 @@ export const Cast = () => {
     'https://www.surf-saunton.co.uk/wp-content/uploads/2022/03/coming-soon-200x300-c-default.jpg';
 
   return (
-    <>
+    <div>
       <ul>
         {cast ? (
           cast.map(({ name, character, id, profile_path }) => (
@@ -35,6 +35,6 @@ export const Cast = () => {
           <p>Sorry there is no cast memeber added</p>
         )}
       </ul>
-    </>
+    </div>
   );
 };

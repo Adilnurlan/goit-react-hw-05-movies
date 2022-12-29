@@ -11,6 +11,7 @@ footer {
   position: static;
   left: 0;
   bottom: 0;
+  height: 30px;
   width: 100%;
   color: white;
   text-align: center;

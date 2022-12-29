@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { fetchTrendMovies } from 'services/moviesApi';
 import s from './HomePage.module.css';
 
-export const HomePage = () => {
+const HomePage = () => {
   const [trendMovies, setTrendMovies] = useState([]);
   const location = useLocation();
 
@@ -36,3 +36,5 @@ export const HomePage = () => {
     )
   );
 };
+
+export default HomePage;

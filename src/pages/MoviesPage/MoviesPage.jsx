@@ -3,7 +3,7 @@ import { useSearchParams, Link, useLocation } from 'react-router-dom';
 import { fetchMovieByName } from 'services/moviesApi';
 import s from './MoviesPage.module.css';
 
-export const MoviesPage = () => {
+const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
@@ -12,6 +12,9 @@ export const MoviesPage = () => {
     async function fetchMovies() {
       if (query === null || query.trim() === '') return;
       const data = await fetchMovieByName(query);
+      if (data.length === 0) {
+        return alert('There is no movie with that name');
+      }
       setMovies(data);
     }
     fetchMovies();
@@ -26,9 +29,14 @@ export const MoviesPage = () => {
 
   return (
     <section>
-      <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Please type a movie" name="query" />
-        <button>Search</button>
+      <form className={s.form} onSubmit={handleSubmit}>
+        <input
+          className={s.input}
+          type="text"
+          placeholder="Please type a movie"
+          name="query"
+        />
+        <button className={s.btn}>Search</button>
       </form>
       {movies && (
         <>
@@ -55,3 +63,5 @@ export const MoviesPage = () => {
     </section>
   );
 };
+
+export default MoviesPage;

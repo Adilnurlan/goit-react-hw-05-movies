@@ -52,3 +52,89 @@
 .image {
   border-radius: 10px;
 }
+
+.infoWrapper {
+  position: relative;
+  margin-top: 54px;
+}
+
+.title {
+  font-family: 'Raleway', sans-serif;
+  font-size: 36px;
+  color: #ffffff;
+}
+
+.rating {
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+  margin-bottom: 50px;
+}
+
+.rating span {
+  border: 1px solid orange;
+  padding: 3px;
+  background-color: orange;
+  border-radius: 3px;
+  color: #000000;
+}
+
+.infoTitle {
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  color: orange;
+  margin-bottom: 20px;
+}
+
+.overview {
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+  margin-bottom: 50px;
+}
+
+.genresList {
+  display: flex;
+  list-style: none;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+  margin-bottom: 50px;
+}
+
+.genresList li:not(:last-child) {
+  margin-right: 30px;
+}
+
+.genresListItem span {
+  margin-left: 30px;
+}
+
+.linkList {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+  list-style: none;
+  margin-bottom: 30px;
+  padding: 0;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+}
+
+.Link {
+  text-decoration: none;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  color: #ffffff;
+  border: 1px solid #1a1a1a;
+  border-radius: 5px;
+  padding: 5px 15px;
+  background-color: #1a1a1a;
+}
+
+.Link:hover {
+  background-color: orange;
+  border: 1px solid orange;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+}

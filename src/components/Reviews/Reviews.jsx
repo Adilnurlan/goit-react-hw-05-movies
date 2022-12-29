@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieReviews } from 'services/moviesApi';
+import s from './Reviews.module.css';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -11,20 +12,20 @@ const Reviews = () => {
   }, [movieId]);
 
   return (
-    <div>
-      <ul>
+    <section className={s.reviewsWrapper}>
+      <ul className={s.reviewsList}>
         {reviews.length !== 0 ? (
           reviews.map(({ author, content, id }) => (
-            <li key={id}>
-              <h3>Author: {author}</h3>
-              <p>{content}</p>
+            <li className={s.reviewsListItem} key={id}>
+              <h3 className={s.authorName}>Author: {author}</h3>
+              <p className={s.reviewContent}>{content}</p>
             </li>
           ))
         ) : (
-          <p>There are no reviews</p>
+          <p className={s.noReviews}>There are no reviews</p>
         )}
       </ul>
-    </div>
+    </section>
   );
 };
 

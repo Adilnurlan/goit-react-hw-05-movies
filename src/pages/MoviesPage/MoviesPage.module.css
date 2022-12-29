@@ -111,3 +111,11 @@ ul {
   border-bottom: 0.3rem solid transparent;
   transition: all 0.3s;
 }
+
+.emptyPage {
+  display: flex;
+  height: 76vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

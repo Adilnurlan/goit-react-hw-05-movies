@@ -11,6 +11,7 @@ const HomePage = () => {
     fetchTrendMovies().then(setTrendMovies);
   }, []);
 
+  // console.log(trendMovies);
   return (
     trendMovies && (
       <section className={s.section}>

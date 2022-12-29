@@ -26,6 +26,7 @@ const MoviesPage = () => {
     setSearchParams({ q: form.elements.query.value });
     form.reset();
   };
+  console.log(movies);
 
   return (
     <section>
@@ -38,7 +39,7 @@ const MoviesPage = () => {
         />
         <button className={s.btn}>Search</button>
       </form>
-      {movies && (
+      {movies.length !== 0 ? (
         <>
           <ul className={s.list}>
             {movies.map(({ title, id, poster_path }) => (
@@ -59,6 +60,8 @@ const MoviesPage = () => {
             ))}
           </ul>
         </>
+      ) : (
+        <div className={s.emptyPage}>No found movies</div>
       )}
     </section>
   );

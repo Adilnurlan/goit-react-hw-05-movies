@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieCast } from 'services/moviesApi';
+import s from './Cast.module.css';
 
 const Cast = () => {
   const [cast, setCast] = useState([]);
@@ -14,12 +15,13 @@ const Cast = () => {
     'https://www.surf-saunton.co.uk/wp-content/uploads/2022/03/coming-soon-200x300-c-default.jpg';
 
   return (
-    <div>
-      <ul>
+    <section className={s.castWrapper}>
+      <ul className={s.castList}>
         {cast ? (
           cast.map(({ name, character, id, profile_path }) => (
-            <li key={id}>
+            <li className={s.castListItem} key={id}>
               <img
+                className={s.castImage}
                 src={
                   profile_path
                     ? `https://image.tmdb.org/t/p/w185${profile_path}`
@@ -27,15 +29,15 @@ const Cast = () => {
                 }
                 alt={name}
               />
-              <h3>{name}</h3>
-              <p>{character}</p>
+              <h3 className={s.castName}>{name}</h3>
+              <p className={s.castCharacter}>{character}</p>
             </li>
           ))
         ) : (
-          <p>Sorry there is no cast memeber added</p>
+          <p className={s.castInfo}>Sorry there is no cast memeber added</p>
         )}
       </ul>
-    </div>
+    </section>
   );
 };
 

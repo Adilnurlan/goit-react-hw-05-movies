@@ -1,22 +1,32 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { fetchTrendMovies } from 'services/moviesApi';
+import { Pagination } from 'components/Pagination/Pagination';
 import s from './HomePage.module.css';
 
 const HomePage = () => {
   const [trendMovies, setTrendMovies] = useState([]);
   const location = useLocation();
+  const [itemOffset, setItemOffset] = useState(1);
 
   useEffect(() => {
-    fetchTrendMovies().then(setTrendMovies);
-  }, []);
+    async function fetchMovies() {
+      const data = await fetchTrendMovies(itemOffset);
+      setTrendMovies(data);
+    }
+    fetchMovies();
+  }, [itemOffset]);
 
-  // console.log(trendMovies);
+  const handlePageClick = event => {
+    const Offset = event.selected + 1;
+    setItemOffset(Offset);
+  };
+
   return (
-    trendMovies && (
+    trendMovies.results && (
       <section className={s.section}>
         <ul className={s.list}>
-          {trendMovies.map(({ title, id, poster_path }) => (
+          {trendMovies.results.map(({ title, id, poster_path }) => (
             <li className={s.listItem} key={id}>
               <Link
                 className={s.Link}
@@ -33,6 +43,10 @@ const HomePage = () => {
             </li>
           ))}
         </ul>
+        <Pagination
+          pageCount={trendMovies.total_pages}
+          onClick={event => handlePageClick(event)}
+        />
       </section>
     )
   );

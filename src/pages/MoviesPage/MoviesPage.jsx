@@ -1,24 +1,27 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams, Link, useLocation } from 'react-router-dom';
 import { fetchMovieByName } from 'services/moviesApi';
+import { Pagination } from 'components/Pagination/Pagination';
 import s from './MoviesPage.module.css';
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [page, setPage] = useState(1);
   const location = useLocation();
   const query = searchParams.get('q');
+
   useEffect(() => {
     async function fetchMovies() {
       if (query === null || query.trim() === '') return;
-      const data = await fetchMovieByName(query);
-      if (data.length === 0) {
+      const data = await fetchMovieByName(query, page);
+      if (data.results.length === 0) {
         return alert('There is no movie with that name');
       }
       setMovies(data);
     }
     fetchMovies();
-  }, [query]);
+  }, [query, page]);
 
   const handleSubmit = evt => {
     evt.preventDefault();
@@ -26,7 +29,11 @@ const MoviesPage = () => {
     setSearchParams({ q: form.elements.query.value });
     form.reset();
   };
-  console.log(movies);
+
+  const handlePageClick = event => {
+    const newPage = event.selected + 1;
+    setPage(newPage);
+  };
 
   return (
     <section>
@@ -39,10 +46,10 @@ const MoviesPage = () => {
         />
         <button className={s.btn}>Search</button>
       </form>
-      {movies.length !== 0 ? (
+      {movies.results ? (
         <>
           <ul className={s.list}>
-            {movies.map(({ title, id, poster_path }) => (
+            {movies.results.map(({ title, id, poster_path }) => (
               <li className={s.listItem} key={id}>
                 <Link
                   className={s.Link}
@@ -59,6 +66,12 @@ const MoviesPage = () => {
               </li>
             ))}
           </ul>
+          {movies.total_results > 20 && (
+            <Pagination
+              pageCount={movies.total_pages}
+              onClick={event => handlePageClick(event)}
+            />
+          )}
         </>
       ) : (
         <div className={s.emptyPage}>No found movies</div>

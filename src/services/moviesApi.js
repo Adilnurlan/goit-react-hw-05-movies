@@ -3,14 +3,15 @@ import axios from 'axios';
 const ApiKey = '9a9abe516901ea117e86ba92a0d908e2';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
-export async function fetchTrendMovies() {
+export async function fetchTrendMovies(page) {
   const response = await axios('trending/movie/week', {
     params: {
       api_key: ApiKey,
+      page,
     },
   });
   // console.log(response.data);
-  return response.data.results;
+  return response.data;
 }
 
 export async function fetchMovieById(id) {
@@ -23,15 +24,16 @@ export async function fetchMovieById(id) {
   return response.data;
 }
 
-export async function fetchMovieByName(query) {
+export async function fetchMovieByName(query, page) {
   const response = await axios('search/movie', {
     params: {
       api_key: ApiKey,
       query,
+      page,
     },
   });
-  // console.log(response.data);
-  return response.data.results;
+  console.log(response.data);
+  return response.data;
 }
 
 export async function fetchMovieCast(id) {

@@ -15,7 +15,6 @@ const Layout = () => {
           <Outlet />
         </Suspense>
       </main>
-      <footer>Made by GOit student Nurlan Adil (2022)</footer>
     </div>
   );
 };

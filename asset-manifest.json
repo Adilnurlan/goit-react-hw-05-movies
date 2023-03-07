@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/trend-movies-website/static/css/main.3abc1c42.css",
-    "main.js": "/trend-movies-website/static/js/main.9a1a6967.js",
+    "main.js": "/trend-movies-website/static/js/main.4801e39d.js",
     "static/css/674.07b13a91.chunk.css": "/trend-movies-website/static/css/674.07b13a91.chunk.css",
     "static/js/674.0745012e.chunk.js": "/trend-movies-website/static/js/674.0745012e.chunk.js",
     "static/css/906.c1edbaa7.chunk.css": "/trend-movies-website/static/css/906.c1edbaa7.chunk.css",
@@ -16,7 +16,7 @@
     "static/js/48.4da79fd2.chunk.js": "/trend-movies-website/static/js/48.4da79fd2.chunk.js",
     "index.html": "/trend-movies-website/index.html",
     "main.3abc1c42.css.map": "/trend-movies-website/static/css/main.3abc1c42.css.map",
-    "main.9a1a6967.js.map": "/trend-movies-website/static/js/main.9a1a6967.js.map",
+    "main.4801e39d.js.map": "/trend-movies-website/static/js/main.4801e39d.js.map",
     "674.07b13a91.chunk.css.map": "/trend-movies-website/static/css/674.07b13a91.chunk.css.map",
     "674.0745012e.chunk.js.map": "/trend-movies-website/static/js/674.0745012e.chunk.js.map",
     "906.c1edbaa7.chunk.css.map": "/trend-movies-website/static/css/906.c1edbaa7.chunk.css.map",
@@ -32,6 +32,6 @@
   },
   "entrypoints": [
     "static/css/main.3abc1c42.css",
-    "static/js/main.9a1a6967.js"
+    "static/js/main.4801e39d.js"
   ]
 }

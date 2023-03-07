@@ -1,7 +1,3 @@
-.container {
-  background-color: #30414b;
-}
-
 header {
   background-color: #72858c;
   height: 70px;
@@ -9,15 +5,4 @@ header {
 
 header ul {
   margin: 0;
-}
-
-footer {
-  position: static;
-  left: 0;
-  bottom: 0;
-  height: 30px;
-  width: 100%;
-  color: white;
-  text-align: center;
-  background-color: #989e9c;
 }
